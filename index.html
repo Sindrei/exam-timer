@@ -11,40 +11,34 @@
   <body>
     <main>
       <div class="main-container">
-        <div class="containers">
-          <h2 class="container-heading">Optional Timer:</h2>
-          <input type="text" id="option-time-input" class="input-time" />
-          <div class="time-display">00:00:00</div>
-          <div class="button-container">
-            <div class="numeric-button-container">
-              <button class="button number-key" value="0">0</button>
-              <button class="button number-key" value="1">1</button>
-              <button class="button number-key" value="2">2</button>
-              <button class="button number-key" value="3">3</button>
-              <button class="button number-key" value="4">4</button>
-              <button class="button number-key" value="5">5</button>
-              <button class="button number-key" value="6">6</button>
-              <button class="button number-key" value="7">7</button>
-              <button class="button number-key" value="8">8</button>
-              <button class="button number-key" value="9">9</button>
-            </div>
-            <div class="clear-button-container">
-              <button id="clear " class="clear">Clear</button>
-            </div>
-            <div class="input-container">
-              <h2 class="container-heading">Labels:</h2>
-              <label for="exam-subject-input"
-                >Subject:<input type="text" id="subject-input"
-              /></label>
-              <label for="venue-input"
-                >Venue:<input type="text" id="venue-input"
-              /></label>
-              <label for="date-input"
-                >Date:<input type="text" id="date-input"
-              /></label>
-              <button id="set-exam" class="button">Set!</button>
-            </div>
+        <h1 class="main-heading">Exam Timer:</h1>
+        <div class="time-display">00:00:00</div>
+        <div class="button-container">
+          <div class="numeric-button-container">
+            <button class="button number-key" value="0">0</button>
+            <button class="button number-key" value="1">1</button>
+            <button class="button number-key" value="2">2</button>
+            <button class="button number-key" value="3">3</button>
+            <button class="button number-key" value="4">4</button>
+            <button class="button number-key" value="5">5</button>
+            <button class="button number-key" value="6">6</button>
+            <button class="button number-key" value="7">7</button>
+            <button class="button number-key" value="8">8</button>
+            <button class="button number-key" value="9">9</button>
           </div>
+          <div class="clear-button-container">
+            <button id="clear" class="button">Clear</button>
+          </div>
+        </div>
+        <div class="input-container">
+          <h2 class="labels-heading">Labels:</h2>
+          <label for="exam-subject-input">Subject:</label>
+          <input type="text" id="subject-input" />
+          <label for="venue-input">Venue:</label>
+          <input type="text" id="venue-input" />
+          <label for="date-input">Date:</label>
+          <input type="text" id="date-input" />
+          <button id="set-timer" class="button">Set!</button>
         </div>
       </div>
     </main>
