@@ -101,3 +101,14 @@ body {
 .input-container>input {
     padding: 5px;
 }
+
+.timer-display-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.timer-buttons-container>button {
+    width: 80px;
+}

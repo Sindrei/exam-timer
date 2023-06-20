@@ -10,6 +10,7 @@
   </head>
   <body>
     <main>
+      <!-- Container for timer input-->
       <div class="main-container">
         <h1 class="main-heading">Exam Timer:</h1>
         <div class="time-display">
@@ -44,6 +45,24 @@
           <label for="date-input">Date:</label>
           <input type="text" id="date-input" />
           <button id="set-timer" class="button">Set!</button>
+        </div>
+      </div>
+      <!-- Container for output of timer -->
+      <div class="timer-display-container">
+        <h2 class="timer-heading">Time left:</h2>
+        <div class="timer-display-output">
+          <span class="timer-hours">00</span>:<span class="timer-minuts"
+            >00</span
+          >:<span class="timer-seconds">00</span>
+        </div>
+        <div class="subject-output">Mathematics</div>
+        <div class="venue-output">Protea Heights Academy</div>
+        <div class="date-output">15 April 2023</div>
+        <div class="current-time-output">14:32:12</div>
+        <div class="timer-buttons-container">
+          <button id="start-button">Start</button>
+          <button id="clear-button">Clear</button>
+          <button id="settings-button">Settings</button>
         </div>
       </div>
     </main>

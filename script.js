@@ -34,4 +34,30 @@ function displayTime() {
   seconds.textContent = time.slice(4, 6);
 }
 
-window.onload = displayTime;
+//  Function getDate() - Retrieves the date to be displayed in the date input box
+function displayDate() {
+  const date = new Date();
+
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  const day = date.getDate();
+  const month = months[date.getMonth()];
+  const year = date.getFullYear();
+
+  return `${day} ${month} ${year}`;
+}
+
+document.querySelector("#date-input").value = displayDate();
