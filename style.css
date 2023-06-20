@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Saira&display=swap');
 
+* {
+    margin: 0;
+}
+
 :root {
-    --box-margin-bottom: 20px;
+    --box-margin: 20px;
 }
 
 /* Footer support */
@@ -37,11 +41,11 @@ body {
     border: 1px solid black;
     border-radius: 10px;
     width: 400px;
-    margin: 0 auto;
+    margin: var(--box-margin) auto;
 }
 
 .time-display {
-    margin-bottom: var(--box-margin-bottom);
+    margin-bottom: var(--box-margin);
     font-size: 2rem;
 }
 
@@ -49,7 +53,7 @@ body {
     display: flex;
     flex: 1;
     width: 90%;
-    margin-bottom: var(--box-margin-bottom);
+    margin-bottom: var(--box-margin);
 }
 
 .numeric-button-container {
@@ -63,12 +67,12 @@ body {
     display: flex;
     min-width: 90%;
     flex-direction: column;
-    margin-bottom: var(--box-margin-bottom);
+    margin-bottom: var(--box-margin);
     gap: 5px;
 }
 
 .input-container input:last-of-type {
-    margin-bottom: var(--box-margin-bottom);
+    margin-bottom: var(--box-margin);
 }
 
 .button {
@@ -92,4 +96,8 @@ body {
     min-height: 50px;
     margin: 0 auto;
     font-size: 1.5rem;
+}
+
+.input-container>input {
+    padding: 5px;
 }
