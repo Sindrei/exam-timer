@@ -7,6 +7,9 @@ let time = "000000";
 
 document.querySelector("#date-input").value = displayDate();
 
+//  Executes the currentTime function every 1 second to display the time
+setInterval(currentTime, 1000);
+
 //  Event listener for numerical buttons
 numberButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -63,11 +66,22 @@ function displayDate() {
     "December",
   ];
 
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  const weekDay = days[date.getDay()];
   const day = date.getDate();
   const month = months[date.getMonth()];
   const year = date.getFullYear();
 
-  return `${day} ${month} ${year}`;
+  return `${weekDay}, ${day} ${month} ${year}`;
 }
 
 // Function setOutput() - Sets the labels and timer on the output screen
@@ -98,4 +112,24 @@ function setOutput() {
 function displaySettings() {
   document.querySelector(".timer-display-container").style.display = "none";
   document.querySelector(".main-container").style.display = "flex";
+}
+
+//  Function currentTime() - Returns the time at the given moment
+function currentTime() {
+  const date = new Date();
+
+  const hoursDisplay = document.querySelector(".time-hours");
+  const minutesDisplay = document.querySelector(".time-minutes");
+  const secondsDisplay = document.querySelector(".time-seconds");
+
+  if (date.getHours < 10) hoursDisplay.textContent = `0${date.getHours()}`;
+  else hoursDisplay.textContent = date.getHours();
+
+  if (date.getMinutes() < 10)
+    minutesDisplay.textContent = `0${date.getMinutes()}`;
+  else minutesDisplay.textContent = date.getMinutes();
+
+  if (date.getSeconds() < 10)
+    secondsDisplay.textContent = `0${date.getSeconds()}`;
+  else secondsDisplay.textContent = date.getSeconds();
 }
