@@ -79,12 +79,40 @@ body {
     flex: 1;
     min-width: 45px;
     font-size: 1.2rem;
+    border-radius: 5px;
+}
+
+.number-key {
+    background-color: lightgreen;
+    border: 2px solid green;
+}
+
+.number-key:hover {
+    background-color: rgb(140, 220, 125);
+    border-width: 2.5px;
+}
+
+.number-key:active {
+    background-color: rgb(181, 235, 181);
+    border-color: rgb(28, 156, 28);
 }
 
 #clear {
     flex: 1;
     min-width: 95px;
     min-height: 95px;
+    background-color: pink;
+    border: 2px solid salmon;
+}
+
+#clear:hover {
+    background-color: lightpink;
+    border-width: 2.5px;
+}
+
+#clear:active {
+    background-color: rgb(255, 205, 214);
+    border-color: lightsalmon;
 }
 
 .labels-heading {
@@ -103,10 +131,24 @@ body {
 }
 
 .timer-display-container {
-    display: flex;
+    display: none;
+    height: calc(100vh - 100px);
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: 20px;
+}
+
+.timer-display-output {
+    font-size: 6rem;
+}
+
+.timer-heading {
+    font-size: 4rem;
+}
+
+.output {
+    font-size: 2rem;
 }
 
 .timer-buttons-container>button {

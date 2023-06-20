@@ -1,7 +1,11 @@
 const numberButtons = document.querySelectorAll(".number-key");
 const clearButton = document.querySelector("#clear");
+const setTimerButton = document.querySelector("#set-timer");
+const settingsButton = document.querySelector("#settings-button");
 
 let time = "000000";
+
+document.querySelector("#date-input").value = displayDate();
 
 //  Event listener for numerical buttons
 numberButtons.forEach((button) => {
@@ -15,6 +19,12 @@ clearButton.addEventListener("click", () => {
   time = "000000";
   displayTime();
 });
+
+//  Event listener for set button
+setTimerButton.addEventListener("click", setOutput);
+
+//  Event listener for settings button
+settingsButton.addEventListener("click", displaySettings);
 
 //  Function inputTime (value) - processes input of numerical values
 function inputTime(value) {
@@ -60,4 +70,32 @@ function displayDate() {
   return `${day} ${month} ${year}`;
 }
 
-document.querySelector("#date-input").value = displayDate();
+// Function setOutput() - Sets the labels and timer on the output screen
+function setOutput() {
+  const hours = document.querySelector(".timer-hours");
+  hours.textContent = document.querySelector(".hours").textContent;
+
+  const minutes = document.querySelector(".timer-minutes");
+  minutes.textContent = document.querySelector(".minutes").textContent;
+
+  const seconds = document.querySelector(".timer-seconds");
+  seconds.textContent = document.querySelector(".seconds").textContent;
+
+  const subject = document.querySelector("#subject-input").value;
+  document.querySelector(".subject-output").textContent = subject;
+
+  const venue = document.querySelector("#venue-input").value;
+  document.querySelector(".venue-output").textContent = venue;
+
+  const date = document.querySelector("#date-input").value;
+  document.querySelector(".date-output").textContent = date;
+
+  document.querySelector(".timer-display-container").style.display = "flex";
+  document.querySelector(".main-container").style.display = "none";
+}
+
+//  Function displaySettings() - Displays the settings menu and hides the timer display
+function displaySettings() {
+  document.querySelector(".timer-display-container").style.display = "none";
+  document.querySelector(".main-container").style.display = "flex";
+}
