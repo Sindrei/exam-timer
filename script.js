@@ -46,6 +46,7 @@ startButton.addEventListener("click", () => {
 resetButton.addEventListener("click", () => {
   stopTimer();
   resetTimer();
+  displayTimeTitle();
 });
 
 //  Event listener for pause button
@@ -134,6 +135,8 @@ function setOutput() {
 function displaySettings() {
   document.querySelector(".timer-display-container").style.display = "none";
   document.querySelector(".main-container").style.display = "flex";
+  const pageTitle = document.querySelector("#pageTitle");
+  pageTitle.textContent = "Exam Timer";
 }
 
 //  Function currentTime() - Returns the time at the given moment
@@ -186,6 +189,7 @@ function timer() {
   if (seconds < 10) secondsTimer.textContent = `0${seconds}`;
   else secondsTimer.textContent = seconds;
 
+  displayTimeTitle();
   time = `${hoursTimer.textContent}${minutesTimer.textContent}${secondsTimer.textContent}`;
   if (milliseconds === 0) clearInterval(myTimer);
 }
@@ -215,4 +219,12 @@ function clear() {
   document.querySelector("#subject-input").value = "";
   document.querySelector("#venue-input").value = "";
   document.querySelector("#date-input").value = displayDate();
+}
+
+//  Function displayTimeTitle () - displays the time left on the timer in the page title bar on the browser
+function displayTimeTitle() {
+  const pageTitle = document.querySelector("#pageTitle");
+  pageTitle.textContent =
+    "Exam Timer - " +
+    document.querySelector(".timer-display-output").textContent;
 }
