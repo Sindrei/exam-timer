@@ -8,6 +8,32 @@
     --box-margin: 20px;
 }
 
+:root.light {
+    background-color: white;
+    color: black;
+    --settings-div-color: whitesmoke;
+    --border-color: black;
+    --link-color: blue;
+    --link-color-visited: purple;
+}
+
+:root.dark {
+    background-color: rgb(18, 18, 18);
+    color: white;
+    --settings-div-color: rgb(36, 36, 36);
+    --border-color: white;
+    --link-color: lightblue;
+    --link-color-visited: pink;
+}
+
+a {
+    color: var(--link-color);
+}
+
+a:visited {
+    color: var(--link-color-visited);
+}
+
 /* Footer support */
 html {
     position: relative;
@@ -34,11 +60,21 @@ body {
     font-size: 20px;
 }
 
+#dark-mode-button {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    width: 50px;
+    height: 30px;
+}
+
 .main-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid var(--border-color);
+    background-color: var(--settings-div-color);
     border-radius: 10px;
     width: 400px;
     margin: var(--box-margin) auto;

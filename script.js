@@ -5,6 +5,7 @@ const settingsButton = document.querySelector("#settings-button");
 const startButton = document.querySelector("#start-button");
 const resetButton = document.querySelector("#reset-button");
 const pauseButton = document.querySelector("#pause-button");
+const darkButton = document.querySelector("#dark-mode-button");
 
 let time = "000000";
 let myTimer;
@@ -13,6 +14,17 @@ document.querySelector("#date-input").value = displayDate();
 
 //  Executes the currentTime function every 1 second to display the time
 const myClock = setInterval(currentTime, 1000);
+
+//  Event listener for dark mode button
+darkButton.addEventListener("click", () => {
+  const root = document.documentElement;
+  let newTheme;
+
+  newTheme = root.className === "light" ? "dark" : "light";
+  root.className = newTheme;
+
+  darkButton.textContent = newTheme;
+});
 
 //  Event listener for numerical buttons
 numberButtons.forEach((button) => {
