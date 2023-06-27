@@ -1,201 +1,201 @@
-@import url('https://fonts.googleapis.com/css2?family=Saira&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Saira&display=swap");
 
 * {
-    margin: 0;
+  margin: 0;
 }
 
 :root {
-    --box-margin: 20px;
+  --box-margin: 20px;
 }
 
 :root.light {
-    background-color: white;
-    color: black;
-    --settings-div-color: whitesmoke;
-    --border-color: black;
-    --link-color: blue;
-    --link-color-visited: purple;
+  background-color: white;
+  color: black;
+  --settings-div-color: whitesmoke;
+  --border-color: black;
+  --link-color: blue;
+  --link-color-visited: purple;
 }
 
 :root.dark {
-    background-color: rgb(18, 18, 18);
-    color: white;
-    --settings-div-color: rgb(36, 36, 36);
-    --border-color: white;
-    --link-color: lightblue;
-    --link-color-visited: pink;
+  background-color: rgb(18, 18, 18);
+  color: white;
+  --settings-div-color: rgb(36, 36, 36);
+  --border-color: white;
+  --link-color: lightblue;
+  --link-color-visited: pink;
 }
 
 a {
-    color: var(--link-color);
+  color: var(--link-color);
 }
 
 a:visited {
-    color: var(--link-color-visited);
+  color: var(--link-color-visited);
 }
 
 /* Footer support */
 html {
-    position: relative;
-    min-height: 100%;
+  position: relative;
+  min-height: 100%;
 }
 
 body {
-    margin-bottom: 100px;
+  margin-bottom: 100px;
 }
 
 /* Footer */
 .footer {
-    box-sizing: border-box;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    padding: 10px;
-    font-family: 'Saira', sans-serif;
-    font-size: 20px;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+  font-family: "Saira", sans-serif;
+  font-size: 20px;
 }
 
 #dark-mode-button {
-    position: absolute;
-    left: 10px;
-    top: 15px;
-    width: 50px;
-    height: 30px;
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  width: 50px;
+  height: 30px;
 }
 
 .main-container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid var(--border-color);
-    background-color: var(--settings-div-color);
-    border-radius: 10px;
-    width: 400px;
-    margin: var(--box-margin) auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  background-color: var(--settings-div-color);
+  border-radius: 10px;
+  width: 400px;
+  margin: var(--box-margin) auto;
 }
 
 .time-display {
-    margin-bottom: var(--box-margin);
-    font-size: 2rem;
+  margin-bottom: var(--box-margin);
+  font-size: 2rem;
 }
 
 .button-container {
-    display: flex;
-    flex: 1;
-    width: 90%;
-    margin-bottom: var(--box-margin);
+  display: flex;
+  flex: 1;
+  width: 90%;
+  margin-bottom: var(--box-margin);
 }
 
 .numeric-button-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin-right: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-right: 5px;
 }
 
 .input-container {
-    display: flex;
-    min-width: 90%;
-    flex-direction: column;
-    margin-bottom: var(--box-margin);
-    gap: 5px;
+  display: flex;
+  min-width: 90%;
+  flex-direction: column;
+  margin-bottom: var(--box-margin);
+  gap: 5px;
 }
 
 .input-container input:last-of-type {
-    margin-bottom: var(--box-margin);
+  margin-bottom: var(--box-margin);
 }
 
 .button {
-    flex: 1;
-    min-width: 45px;
-    font-size: 1.2rem;
-    border-radius: 5px;
+  flex: 1;
+  min-width: 45px;
+  font-size: 1.2rem;
+  border-radius: 5px;
 }
 
 .number-key {
-    background-color: lightgreen;
-    border: 2px solid green;
+  background-color: lightgreen;
+  border: 2px solid green;
 }
 
 .number-key:hover {
-    background-color: rgb(140, 220, 125);
-    border-width: 2.5px;
+  background-color: rgb(140, 220, 125);
+  border-width: 2.5px;
 }
 
 .number-key:active {
-    background-color: rgb(181, 235, 181);
-    border-color: rgb(28, 156, 28);
+  background-color: rgb(181, 235, 181);
+  border-color: rgb(28, 156, 28);
 }
 
 #clear {
-    flex: 1;
-    min-width: 95px;
-    min-height: 95px;
-    background-color: pink;
-    border: 2px solid salmon;
+  flex: 1;
+  min-width: 95px;
+  min-height: 95px;
+  background-color: pink;
+  border: 2px solid salmon;
 }
 
 #clear:hover {
-    background-color: lightpink;
-    border-width: 2.5px;
+  background-color: lightpink;
+  border-width: 2.5px;
 }
 
 #clear:active {
-    background-color: rgb(255, 205, 214);
-    border-color: lightsalmon;
+  background-color: rgb(255, 205, 214);
+  border-color: lightsalmon;
 }
 
 #set-timer:hover {
-    background-color: lightgray;
-    border-color: darkgray;
+  background-color: lightgray;
+  border-color: darkgray;
 }
 
 #set-timer:active {
-    background-color: rgb(231, 231, 231);
+  background-color: rgb(231, 231, 231);
 }
 
 .labels-heading {
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 #set-timer {
-    min-width: 200px;
-    min-height: 50px;
-    margin: 0 auto;
-    font-size: 1.5rem;
+  min-width: 200px;
+  min-height: 50px;
+  margin: 0 auto;
+  font-size: 1.5rem;
 }
 
-.input-container>input {
-    padding: 5px;
+.input-container > input {
+  padding: 5px;
 }
 
 .timer-display-container {
-    display: none;
-    margin-top: 140px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+  display: none;
+  margin-top: 10vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .timer-display-output {
-    font-size: 14rem;
+  font-size: min(20vh, 20vw);
 }
 
 .timer-heading {
-    font-size: 5rem;
+  font-size: min(8vh, 8vw);
 }
 
 .output {
-    font-size: 2.5rem;
+  font-size: min(5vh, 5vw);
 }
 
-.timer-buttons-container>button {
-    width: 80px;
+.timer-buttons-container > button {
+  width: 80px;
 }
