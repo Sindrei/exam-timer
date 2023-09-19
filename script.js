@@ -159,7 +159,7 @@ function currentTime() {
   const minutesDisplay = document.querySelector(".time-minutes");
   const secondsDisplay = document.querySelector(".time-seconds");
 
-  if (date.getHours < 10) hoursDisplay.textContent = `0${date.getHours()}`;
+  if (date.getHours() < 10) hoursDisplay.textContent = `0${date.getHours()}`;
   else hoursDisplay.textContent = date.getHours();
 
   if (date.getMinutes() < 10)
