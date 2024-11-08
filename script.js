@@ -159,7 +159,7 @@ function currentTime() {
   let minutes;
   let seconds;
 
-  if (date.getHours() < 10) hours = `0${date.gethours()}`;
+  if (date.getHours() < 10) hours = `0${date.getHours()}`;
   else hours = date.getHours();
 
   if (date.getMinutes() < 10) minutes = `0${date.getMinutes()}`;
