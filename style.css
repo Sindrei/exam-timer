@@ -241,7 +241,7 @@ body {
 }
 
 #settings-button {
-  background-image: url("/images/settings.svg");
+  background-image: url("images/settings.svg");
 }
 
 .main-heading {
