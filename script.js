@@ -18,12 +18,11 @@ const myClock = setInterval(currentTime, 1000);
 //  Event listener for dark mode button
 darkButton.addEventListener("click", () => {
   const root = document.documentElement;
-  let newTheme;
 
-  newTheme = root.className === "light" ? "dark" : "light";
+  let newTheme = root.className === "light" ? "dark" : "light";
+
   root.className = newTheme;
-
-  darkButton.textContent = newTheme;
+  darkButton.textContent = newTheme[0].toUpperCase() + newTheme.slice(1, newTheme.length);
 });
 
 //  Event listener for numerical buttons
@@ -50,8 +49,21 @@ settingsButton.addEventListener("click", () => {
 
 //  Event listener for start-button
 startButton.addEventListener("click", () => {
-  myTimer = setInterval(timer, 1000);
-  startButton.disabled = true;
+  if (startButton.textContent === "Start") {
+    startButton.textContent = "Pause";
+    myTimer = setInterval(timer, 1000);
+  } else {
+    stopTimer();
+  }
+
+  //   startButton.textContent = "Pause";
+  //   myTimer = setInterval(timer, 1000);
+  //   // startButton.disabled = true;
+  //   // startButton.removeEventListener;
+  //   startButton.addEventListener("click", stopTimer);
+  // } else {
+  //   startButton.textContent = "Start";
+  //   // startButton.addEventListener("click", stopTimer);
 });
 
 //  Event listener for reset button
@@ -60,9 +72,6 @@ resetButton.addEventListener("click", () => {
   resetTimer();
   displayTimeTitle();
 });
-
-//  Event listener for pause button
-pauseButton.addEventListener("click", stopTimer);
 
 //  Function inputTime (value) - processes input of numerical values
 function inputTime(value) {
@@ -147,8 +156,7 @@ function setOutput() {
 function displaySettings() {
   document.querySelector(".timer-display-container").style.display = "none";
   document.querySelector(".main-container").style.display = "flex";
-  const pageTitle = document.querySelector("#pageTitle");
-  pageTitle.textContent = "Exam Timer";
+  document.querySelector("#pageTitle").textContent = "Exam Timer";
 }
 
 //  Function currentTime() - Returns the time at the given moment
@@ -162,12 +170,10 @@ function currentTime() {
   if (date.getHours() < 10) hoursDisplay.textContent = `0${date.getHours()}`;
   else hoursDisplay.textContent = date.getHours();
 
-  if (date.getMinutes() < 10)
-    minutesDisplay.textContent = `0${date.getMinutes()}`;
+  if (date.getMinutes() < 10) minutesDisplay.textContent = `0${date.getMinutes()}`;
   else minutesDisplay.textContent = date.getMinutes();
 
-  if (date.getSeconds() < 10)
-    secondsDisplay.textContent = `0${date.getSeconds()}`;
+  if (date.getSeconds() < 10) secondsDisplay.textContent = `0${date.getSeconds()}`;
   else secondsDisplay.textContent = date.getSeconds();
 }
 
@@ -209,7 +215,7 @@ function timer() {
 //  function stopTimer() - Stops the timer function
 function stopTimer() {
   clearInterval(myTimer);
-  startButton.disabled = false;
+  startButton.textContent = "Start";
 }
 
 //  function resetTimer() - Resets the timer value
@@ -221,6 +227,8 @@ function resetTimer() {
   document.querySelector(".timer-hours").textContent = hours;
   document.querySelector(".timer-minutes").textContent = minutes;
   document.querySelector(".timer-seconds").textContent = seconds;
+
+  startButton.textContent = "Start";
 
   time = `${hours}${minutes}${seconds}`;
 }
@@ -237,6 +245,5 @@ function clear() {
 function displayTimeTitle() {
   const pageTitle = document.querySelector("#pageTitle");
   pageTitle.textContent =
-    "Exam Timer - " +
-    document.querySelector(".timer-display-output").textContent;
+    "Exam Timer - " + document.querySelector(".timer-display-output").textContent;
 }
