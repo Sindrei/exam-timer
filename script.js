@@ -175,13 +175,13 @@ function currentTime() {
 function timer() {
   if (time === "000000") return;
 
-  const hoursTimer = document.querySelector(".timer-hours").textContent;
-  const minutesTimer = document.querySelector(".timer-minutes").textContent;
-  const secondsTimer = document.querySelector(".timer-seconds").textContent;
+  const hoursTimer = document.querySelector(".timer-hours");
+  const minutesTimer = document.querySelector(".timer-minutes");
+  const secondsTimer = document.querySelector(".timer-seconds");
 
-  let hours = parseInt(hoursTimer) * 60 * 60 * 1000;
-  let minutes = parseInt(minutesTimer) * 60 * 1000;
-  let seconds = parseInt(secondsTimer) * 1000;
+  let hours = parseInt(hoursTimer.textContent) * 60 * 60 * 1000;
+  let minutes = parseInt(minutesTimer.textContent) * 60 * 1000;
+  let seconds = parseInt(secondsTimer.textContent) * 1000;
 
   const milliseconds = hours + minutes + seconds - 1000;
 
@@ -192,16 +192,16 @@ function timer() {
   seconds = seconds % 60;
   minutes = minutes % 60;
 
-  if (hours < 10) hoursTimer = `0${hours}`;
-  else hoursTimer = hours;
+  if (hours < 10) hoursTimer.textContent = `0${hours}`;
+  else hoursTimer.textContent = hours;
 
-  if (minutes < 10) minutesTimer = `0${minutes}`;
-  else minutesTimer = minutes;
+  if (minutes < 10) minutesTimer.textContent = `0${minutes}`;
+  else minutesTimer.textContent = minutes;
 
-  if (seconds < 10) secondsTimer = `0${seconds}`;
-  else secondsTimer = seconds;
+  if (seconds < 10) secondsTimer.textContent = `0${seconds}`;
+  else secondsTimer.textContent = seconds;
 
-  time = `${hoursTimer}${minutesTimer}${secondsTimer}`;
+  time = `${hoursTimer.textContent}${minutesTimer.textContent}${secondsTimer.textContent}`;
   displayTimeTitle();
   if (milliseconds === 0) clearInterval(myTimer);
 }
