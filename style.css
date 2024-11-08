@@ -15,6 +15,7 @@
   --border-color: black;
   --link-color: blue;
   --link-color-visited: purple;
+  --timer-button-color: rgb(238, 238, 238);
 }
 
 :root.dark {
@@ -24,6 +25,7 @@
   --border-color: white;
   --link-color: lightblue;
   --link-color-visited: pink;
+  --timer-button-color: lightgrey;
 }
 
 a {
@@ -171,7 +173,7 @@ body {
   font-size: 1.5rem;
 }
 
-.input-container > input {
+.input-container>input {
   padding: 5px;
 }
 
@@ -196,6 +198,52 @@ body {
   font-size: min(5vh, 5vw);
 }
 
-.timer-buttons-container > button {
+.timer-buttons-container>button {
+  border-radius: 40px;
   width: 80px;
+  height: 80px;
+  margin: 5px;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position: 50% 50%;
+  background-color: var(--timer-button-color);
+  border: none;
+  cursor: pointer;
+  transition: ease-in-out;
+  transition-duration: 300ms, 300ms;
+}
+
+.timer-buttons-container>button:hover {
+  transform: scale(1.05);
+}
+
+.timer-buttons-container>button:active {
+  background-color: darkgray;
+}
+
+#start-button[value="false"] {
+  background-image: url("images/play.svg");
+  background-position: 60% 50%;
+}
+
+#start-button[value="true"] {
+  background-image: url("images/pause.svg");
+}
+
+
+#reset-button {
+  background-image: url("images/refresh-ccw.svg");
+}
+
+#reset-button:hover {
+  rotate: -360deg;
+}
+
+#settings-button {
+  background-image: url("/images/settings.svg");
+}
+
+.main-heading {
+  margin-top: 5px;
 }

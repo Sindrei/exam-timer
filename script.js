@@ -13,7 +13,9 @@ let myTimer;
 document.querySelector("#date-input").value = displayDate();
 
 //  Executes the currentTime function every 1 second to display the time
-const myClock = setInterval(currentTime, 1000);
+setInterval(() => {
+  document.querySelector(".current-time-output").textContent = currentTime();
+}, 1000);
 
 //  Event listener for dark mode button
 darkButton.addEventListener("click", () => {
@@ -39,7 +41,10 @@ clearButton.addEventListener("click", () => {
 });
 
 //  Event listener for set button
-setTimerButton.addEventListener("click", setOutput);
+setTimerButton.addEventListener("click", () => {
+  setOutput();
+  displayTimeTitle();
+});
 
 //  Event listener for settings button
 settingsButton.addEventListener("click", () => {
@@ -49,21 +54,12 @@ settingsButton.addEventListener("click", () => {
 
 //  Event listener for start-button
 startButton.addEventListener("click", () => {
-  if (startButton.textContent === "Start") {
-    startButton.textContent = "Pause";
+  if (startButton["value"] === "false") {
+    startButton["value"] = "true";
     myTimer = setInterval(timer, 1000);
   } else {
     stopTimer();
   }
-
-  //   startButton.textContent = "Pause";
-  //   myTimer = setInterval(timer, 1000);
-  //   // startButton.disabled = true;
-  //   // startButton.removeEventListener;
-  //   startButton.addEventListener("click", stopTimer);
-  // } else {
-  //   startButton.textContent = "Start";
-  //   // startButton.addEventListener("click", stopTimer);
 });
 
 //  Event listener for reset button
@@ -82,13 +78,9 @@ function inputTime(value) {
 /*  Function displayTime() - 
     Retrieves the time from let time and displays it to appropriate HTML elements */
 function displayTime() {
-  const hours = document.querySelector(".hours");
-  const minutes = document.querySelector(".minutes");
-  const seconds = document.querySelector(".seconds");
-
-  hours.textContent = time.slice(0, 2);
-  minutes.textContent = time.slice(2, 4);
-  seconds.textContent = time.slice(4, 6);
+  document.querySelector(".hours").textContent = time.slice(0, 2);
+  document.querySelector(".minutes").textContent = time.slice(2, 4);
+  document.querySelector(".seconds").textContent = time.slice(4, 6);
 }
 
 //  Function getDate() - Retrieves the date to be displayed in the date input box
@@ -130,23 +122,23 @@ function displayDate() {
 
 // Function setOutput() - Sets the labels and timer on the output screen
 function setOutput() {
-  const hours = document.querySelector(".timer-hours");
-  hours.textContent = document.querySelector(".hours").textContent;
+  document.querySelector(".timer-hours").textContent =
+    document.querySelector(".hours").textContent;
 
-  const minutes = document.querySelector(".timer-minutes");
-  minutes.textContent = document.querySelector(".minutes").textContent;
+  document.querySelector(".timer-minutes").textContent =
+    document.querySelector(".minutes").textContent;
 
-  const seconds = document.querySelector(".timer-seconds");
-  seconds.textContent = document.querySelector(".seconds").textContent;
+  document.querySelector(".timer-seconds").textContent =
+    document.querySelector(".seconds").textContent;
 
-  const subject = document.querySelector("#subject-input").value;
-  document.querySelector(".subject-output").textContent = subject;
+  document.querySelector(".subject-output").textContent =
+    document.querySelector("#subject-input").value;
 
-  const venue = document.querySelector("#venue-input").value;
-  document.querySelector(".venue-output").textContent = venue;
+  document.querySelector(".venue-output").textContent =
+    document.querySelector("#venue-input").value;
 
-  const date = document.querySelector("#date-input").value;
-  document.querySelector(".date-output").textContent = date;
+  document.querySelector(".date-output").textContent =
+    document.querySelector("#date-input").value;
 
   document.querySelector(".timer-display-container").style.display = "flex";
   document.querySelector(".main-container").style.display = "none";
@@ -163,18 +155,20 @@ function displaySettings() {
 function currentTime() {
   const date = new Date();
 
-  const hoursDisplay = document.querySelector(".time-hours");
-  const minutesDisplay = document.querySelector(".time-minutes");
-  const secondsDisplay = document.querySelector(".time-seconds");
+  let hours;
+  let minutes;
+  let seconds;
 
-  if (date.getHours() < 10) hoursDisplay.textContent = `0${date.getHours()}`;
-  else hoursDisplay.textContent = date.getHours();
+  if (date.getHours() < 10) hours = `0${date.gethours()}`;
+  else hours = date.getHours();
 
-  if (date.getMinutes() < 10) minutesDisplay.textContent = `0${date.getMinutes()}`;
-  else minutesDisplay.textContent = date.getMinutes();
+  if (date.getMinutes() < 10) minutes = `0${date.getMinutes()}`;
+  else minutes = date.getMinutes();
 
-  if (date.getSeconds() < 10) secondsDisplay.textContent = `0${date.getSeconds()}`;
-  else secondsDisplay.textContent = date.getSeconds();
+  if (date.getSeconds() < 10) seconds = `0${date.getSeconds()}`;
+  else seconds = date.getSeconds();
+
+  return `${hours}:${minutes}:${seconds}`;
 }
 
 //  function timer() - Counts down the time indicated on the timer display
@@ -215,7 +209,8 @@ function timer() {
 //  function stopTimer() - Stops the timer function
 function stopTimer() {
   clearInterval(myTimer);
-  startButton.textContent = "Start";
+  // startButton.textContent = "Start";
+  startButton["value"] = "false";
 }
 
 //  function resetTimer() - Resets the timer value
@@ -228,7 +223,8 @@ function resetTimer() {
   document.querySelector(".timer-minutes").textContent = minutes;
   document.querySelector(".timer-seconds").textContent = seconds;
 
-  startButton.textContent = "Start";
+  // startButton.textContent = "Start";
+  startButton["value"] = "false";
 
   time = `${hours}${minutes}${seconds}`;
 }
@@ -242,8 +238,7 @@ function clear() {
 }
 
 //  Function displayTimeTitle () - displays the time left on the timer in the page title bar on the browser
-function displayTimeTitle() {
-  const pageTitle = document.querySelector("#pageTitle");
-  pageTitle.textContent =
+function displayTimeTitle(time) {
+  document.querySelector("#pageTitle").textContent =
     "Exam Timer - " + document.querySelector(".timer-display-output").textContent;
 }

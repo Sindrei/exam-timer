@@ -49,6 +49,7 @@
           <button id="set-timer" class="button">Set!</button>
         </div>
       </div>
+      <!-- Container for output of timer -->
       <div class="timer-display-container">
         <h2 class="timer-heading">Time left:</h2>
         <div class="timer-display-output">
@@ -60,17 +61,11 @@
         <div class="subject-output output"></div>
         <div class="venue-output output"></div>
         <div class="date-output output"></div>
-        <div class="current-time-output output">
-          <span class="time-hours">00</span>:<span class="time-minutes">00</span>:<span
-            class="time-seconds"
-            >00</span
-          >
-        </div>
+        <div class="current-time-output output">00:00:00</div>
         <div class="timer-buttons-container">
-          <button id="start-button">Start</button>
-          <!-- <button id="pause-button">Pause</button> -->
-          <button id="reset-button">Reset</button>
-          <button id="settings-button">Settings</button>
+          <button id="start-button" value="false"></button>
+          <button id="reset-button"></button>
+          <button id="settings-button"></button>
         </div>
       </div>
     </main>
