@@ -247,3 +247,7 @@ body {
 .main-heading {
   margin-top: 5px;
 }
+
+.inactive {
+  cursor: none;
+}
