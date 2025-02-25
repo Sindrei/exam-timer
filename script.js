@@ -10,6 +10,9 @@ const darkButton = document.querySelector("#dark-mode-button");
 let time = "000000";
 let myTimer;
 
+let idleTimer = null;
+let idleState = false;
+
 document.querySelector("#date-input").value = displayDate();
 
 //  Executes the currentTime function every 1 second to display the time
@@ -237,6 +240,31 @@ function clear() {
 
 //  Function displayTimeTitle () - displays the time left on the timer in the page title bar on the browser
 function displayTimeTitle() {
-  document.querySelector("#pageTitle").textContent =
-    "Exam Timer - " + document.querySelector(".timer-display-output").textContent;
+  const hours = time.slice(0, 2);
+  const minutes = time.slice(2, 4);
+  const seconds = time.slice(4, 6);
+
+  document.querySelector(
+    "#pageTitle"
+  ).textContent = `Exam Timer - ${hours}:${minutes}:${seconds}`;
 }
+
+// function showMouse - hide and shows the mouse pointer again
+function showMouse(time) {
+  clearTimeout(idleTimer);
+  const root = document.documentElement;
+
+  if (idleState == true) {
+    root.classList.remove("inactive");
+  }
+  idleState = false;
+  idleTimer = setTimeout(() => {
+    root.classList.add("inactive");
+    idleState = true;
+  }, time);
+}
+
+// adds an event listener to the document to hide the mouse pointer when inactive for 4 seconds
+document.onmousemove = () => {
+  showMouse(4000);
+};
